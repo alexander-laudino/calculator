@@ -42,6 +42,7 @@ const calculateValue = function () {
 };
 
 const clearButton = document.getElementById("clear");
+const backspaceButton = document.getElementById("backspace");
 const percentButton = document.getElementById("percent");
 const digitButtons = document.querySelectorAll(".digits .digit");
 const operatorButtons = document.querySelectorAll(".operations .operators");
@@ -67,6 +68,19 @@ clearButton.addEventListener("click", () => {
   isFirstPercent = false;
   isSecondFloat = false;
   isSecondPercent = false;
+});
+
+backspaceButton.addEventListener("click", () => {
+  if (op === "") {
+    first = first.slice(0, -1);
+    document.getElementById("firstOperand").textContent = first;
+  } else if (op.length > 0 && second === "") {
+    op = "";
+    document.getElementById("operator").textContent = op;
+  } else if (op.length > 0 && second.length > 0) {
+    second = second.slice(0, -1);
+    document.getElementById("secondOperand").textContent = second;
+  }
 });
 
 percentButton.addEventListener("click", () => {
