@@ -10,7 +10,10 @@ body {
 .header,
 .footer {
   background-color: #fff;
-  height: 75px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .container {
