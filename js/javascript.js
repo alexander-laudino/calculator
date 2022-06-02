@@ -30,3 +30,9 @@ const operate = function (operator, a, b) {
       break;
   }
 };
+
+const digitButtons = document.querySelectorAll(".digits .digit");
+
+digitButtons.forEach((button) => {
+  button.addEventListener("click", (e) => console.log(e.target));
+});
