@@ -52,5 +52,10 @@ equalButton.addEventListener("click", () => {
 });
 
 operatorButtons.forEach((button) => {
-  button.addEventListener("click", (e) => console.log(e.target.textContent));
+  button.addEventListener("click", (e) => {
+    if (second === "") {
+      op = e.target.textContent;
+      document.getElementById("operator").textContent = op;
+    }
+  });
 });
