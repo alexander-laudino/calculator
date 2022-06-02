@@ -44,6 +44,7 @@ let second = document.getElementById("secondOperand").textContent;
 let isFirstFloat = false;
 let isFirstPercent = false;
 let isSecondFloat = false;
+let isSecondPercent = false;
 
 clearButton.addEventListener("click", () => {
   first = "";
@@ -55,14 +56,20 @@ clearButton.addEventListener("click", () => {
   isFirstFloat = false;
   isFirstPercent = false;
   isSecondFloat = false;
+  isSecondPercent = false;
 });
 
 percentButton.addEventListener("click", () => {
-  if (!isFirstPercent && op === "") {
-    first = parseFloat(first) / 100;
+  if (!isFirstPercent && op === "" && first.length > 0) {
+    first = first / 100;
     isFirstFloat = true;
     isFirstPercent = true;
     document.getElementById("firstOperand").textContent = `${first}`;
+  } else if (!isSecondPercent && op.length > 0 && second.length > 0) {
+    second = second / 100;
+    isSecondFloat = true;
+    isSecondPercent = true;
+    document.getElementById("secondOperand").textContent = `${second}`;
   }
 });
 
