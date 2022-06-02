@@ -40,6 +40,7 @@ let first = document.getElementById("firstOperand").textContent;
 let op = document.getElementById("operator").textContent;
 let second = document.getElementById("secondOperand").textContent;
 let isFirstFloat = false;
+let isSecondFloat = false;
 
 digitButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
@@ -67,6 +68,10 @@ dotButton.addEventListener("click", (e) => {
     first = first + e.target.textContent;
     document.getElementById("firstOperand").textContent = first;
     isFirstFloat = true;
+  } else if (!isSecondFloat) {
+    second = second + e.target.textContent;
+    document.getElementById("secondOperand").textContent = second;
+    isSecondFloat = true;
   }
 });
 
