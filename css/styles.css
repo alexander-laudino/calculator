@@ -25,13 +25,14 @@ body {
 .calculator {
   height: 600px;
   width: 400px;
+  padding: 10px;
   border: #fff solid 2px;
   border-radius: 10px;
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
 }
 
 .display {
@@ -76,4 +77,6 @@ button {
   background-color: #000;
   color: #fff;
   border-radius: 32.5px;
+  font-size: 24px;
+  font-weight: bold;
 }
