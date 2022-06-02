@@ -40,6 +40,13 @@ body {
   width: 350px;
   border: #fff solid 2px;
   border-radius: 15px;
+  padding-right: 5px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 5px;
+  color: #fff;
+  font-size: 24px;
 }
 
 .buttons {
