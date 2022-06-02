@@ -14,19 +14,19 @@ const divide = function (a, b) {
   return a / b;
 };
 
-const operate = function (operator) {
+const operate = function (operator, a, b) {
   switch (operator) {
     case "+":
-      console.log("Add");
+      return add(a, b);
       break;
     case "-":
-      console.log("Subtract");
+      return subtract(a, b);
       break;
     case "*":
-      console.log("Multiply");
+      return multiply(a, b);
       break;
     case "/":
-      console.log("Divide");
+      return divide(a, b);
       break;
   }
 };
