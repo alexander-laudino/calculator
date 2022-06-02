@@ -32,14 +32,19 @@ const operate = function (operator, a, b) {
 };
 
 const digitButtons = document.querySelectorAll(".digits .digit");
-const first = document.getElementById("firstOperand").textContent;
-const op = document.getElementById("operator").textContent;
-const second = document.getElementById("secondOperand").textContent;
+let first = document.getElementById("firstOperand").textContent;
+let op = document.getElementById("operator").textContent;
+let second = document.getElementById("secondOperand").textContent;
 const equalButton = document.getElementById("equal");
 const operatorButtons = document.querySelectorAll(".operations .operators");
 
 digitButtons.forEach((button) => {
-  button.addEventListener("click", (e) => console.log(e.target.textContent));
+  button.addEventListener("click", (e) => {
+    if (first === "" || (first.length > 0 && op === "")) {
+      first = first + e.target.textContent;
+      document.getElementById("firstOperand").textContent = first;
+    }
+  });
 });
 
 equalButton.addEventListener("click", () => {
