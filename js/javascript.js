@@ -133,7 +133,7 @@ dotButton.addEventListener("click", (e) => {
     first = first + e.target.textContent;
     document.getElementById("firstOperand").textContent = first;
     isFirstFloat = true;
-  } else if (!isSecondFloat) {
+  } else if (!isSecondFloat && op.length > 0) {
     second = second + e.target.textContent;
     document.getElementById("secondOperand").textContent = second;
     isSecondFloat = true;
