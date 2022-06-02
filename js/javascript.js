@@ -97,7 +97,11 @@ digitButtons.forEach((button) => {
 
 operatorButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
-    if (second === "") {
+    if (second.length > 0) {
+      calculateValue();
+      op = e.target.textContent;
+      document.getElementById("operator").textContent = op;
+    } else if (second === "") {
       op = e.target.textContent;
       document.getElementById("operator").textContent = op;
     }
