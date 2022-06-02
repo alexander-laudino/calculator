@@ -40,7 +40,6 @@ body {
 .buttons {
   height: 450px;
   width: 350px;
-  border: #fff solid 2px;
   display: flex;
   justify-content: space-between;
   align-items: center;
