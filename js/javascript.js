@@ -32,6 +32,7 @@ const operate = function (operator, a, b) {
 };
 
 const clearButton = document.getElementById("clear");
+const percentButton = document.getElementById("percent");
 const digitButtons = document.querySelectorAll(".digits .digit");
 const operatorButtons = document.querySelectorAll(".operations .operators");
 const dotButton = document.getElementById("dot");
@@ -41,6 +42,7 @@ let first = document.getElementById("firstOperand").textContent;
 let op = document.getElementById("operator").textContent;
 let second = document.getElementById("secondOperand").textContent;
 let isFirstFloat = false;
+let isFirstPercent = false;
 let isSecondFloat = false;
 
 clearButton.addEventListener("click", () => {
@@ -50,6 +52,18 @@ clearButton.addEventListener("click", () => {
   document.getElementById("firstOperand").textContent = first;
   document.getElementById("operator").textContent = op;
   document.getElementById("secondOperand").textContent = second;
+  isFirstFloat = false;
+  isFirstPercent = false;
+  isSecondFloat = false;
+});
+
+percentButton.addEventListener("click", () => {
+  if (!isFirstPercent && op === "") {
+    first = parseFloat(first) / 100;
+    isFirstFloat = true;
+    isFirstPercent = true;
+    document.getElementById("firstOperand").textContent = `${first}`;
+  }
 });
 
 digitButtons.forEach((button) => {
