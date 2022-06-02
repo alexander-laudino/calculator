@@ -23,4 +23,47 @@ body {
   height: 600px;
   width: 400px;
   border: #fff solid 2px;
+  border-radius: 10px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.display {
+  height: 175px;
+  width: 350px;
+  border: #fff solid 2px;
+}
+
+.buttons {
+  height: 375px;
+  width: 350px;
+  border: #fff solid 2px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.digits {
+  height: 350px;
+  width: 255px;
+  display: flex;
+  flex-wrap: wrap-reverse;
+  gap: 20px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.operations {
+  height: 350px;
+  width: 85px;
+  border: #fff solid 2px;
+}
+
+button {
+  height: 65px;
+  width: 65px;
+  border: #fff solid 2px;
 }
