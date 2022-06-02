@@ -31,6 +31,16 @@ const operate = function (operator, a, b) {
   }
 };
 
+const calculateValue = function () {
+  first = operate(op, parseFloat(first), parseFloat(second));
+  first = parseFloat(first.toFixed(8)).toString();
+  op = "";
+  second = "";
+  document.getElementById("firstOperand").textContent = `${first}`;
+  document.getElementById("operator").textContent = op;
+  document.getElementById("secondOperand").textContent = second;
+};
+
 const clearButton = document.getElementById("clear");
 const percentButton = document.getElementById("percent");
 const digitButtons = document.querySelectorAll(".digits .digit");
@@ -107,11 +117,5 @@ dotButton.addEventListener("click", (e) => {
 });
 
 equalButton.addEventListener("click", () => {
-  first = operate(op, parseFloat(first), parseFloat(second));
-  first = parseFloat(first.toFixed(8)).toString();
-  op = "";
-  second = "";
-  document.getElementById("firstOperand").textContent = `${first}`;
-  document.getElementById("operator").textContent = op;
-  document.getElementById("secondOperand").textContent = second;
+  calculateValue();
 });
