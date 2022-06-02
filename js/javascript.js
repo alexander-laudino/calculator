@@ -43,6 +43,9 @@ digitButtons.forEach((button) => {
     if (first === "" || (first.length > 0 && op === "")) {
       first = first + e.target.textContent;
       document.getElementById("firstOperand").textContent = first;
+    } else {
+      second = second + e.target.textContent;
+      document.getElementById("secondOperand").textContent = second;
     }
   });
 });
