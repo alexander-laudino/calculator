@@ -31,6 +31,7 @@ const operate = function (operator, a, b) {
   }
 };
 
+const clearButton = document.getElementById("clear");
 const digitButtons = document.querySelectorAll(".digits .digit");
 const operatorButtons = document.querySelectorAll(".operations .operators");
 const dotButton = document.getElementById("dot");
@@ -41,6 +42,15 @@ let op = document.getElementById("operator").textContent;
 let second = document.getElementById("secondOperand").textContent;
 let isFirstFloat = false;
 let isSecondFloat = false;
+
+clearButton.addEventListener("click", () => {
+  first = "";
+  op = "";
+  second = "";
+  document.getElementById("firstOperand").textContent = first;
+  document.getElementById("operator").textContent = op;
+  document.getElementById("secondOperand").textContent = second;
+});
 
 digitButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
