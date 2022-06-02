@@ -32,11 +32,14 @@ const operate = function (operator, a, b) {
 };
 
 const digitButtons = document.querySelectorAll(".digits .digit");
+const operatorButtons = document.querySelectorAll(".operations .operators");
+const dotButton = document.getElementById("dot");
+const equalButton = document.getElementById("equal");
+
 let first = document.getElementById("firstOperand").textContent;
 let op = document.getElementById("operator").textContent;
 let second = document.getElementById("secondOperand").textContent;
-const equalButton = document.getElementById("equal");
-const operatorButtons = document.querySelectorAll(".operations .operators");
+let isFirstFloat = false;
 
 digitButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
@@ -50,10 +53,6 @@ digitButtons.forEach((button) => {
   });
 });
 
-equalButton.addEventListener("click", () => {
-  console.log(`${first} ${op} ${second}`);
-});
-
 operatorButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
     if (second === "") {
@@ -61,4 +60,16 @@ operatorButtons.forEach((button) => {
       document.getElementById("operator").textContent = op;
     }
   });
+});
+
+dotButton.addEventListener("click", (e) => {
+  if (!isFirstFloat && op === "") {
+    first = first + e.target.textContent;
+    document.getElementById("firstOperand").textContent = first;
+    isFirstFloat = true;
+  }
+});
+
+equalButton.addEventListener("click", () => {
+  console.log(`${first} ${op} ${second}`);
 });
