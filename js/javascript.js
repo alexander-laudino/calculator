@@ -107,5 +107,11 @@ dotButton.addEventListener("click", (e) => {
 });
 
 equalButton.addEventListener("click", () => {
-  console.log(`${first} ${op} ${second}`);
+  first = operate(op, parseFloat(first), parseFloat(second));
+  first = parseFloat(first.toFixed(8)).toString();
+  op = "";
+  second = "";
+  document.getElementById("firstOperand").textContent = `${first}`;
+  document.getElementById("operator").textContent = op;
+  document.getElementById("secondOperand").textContent = second;
 });
