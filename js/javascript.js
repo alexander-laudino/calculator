@@ -36,3 +36,12 @@ const digitButtons = document.querySelectorAll(".digits .digit");
 digitButtons.forEach((button) => {
   button.addEventListener("click", (e) => console.log(e.target));
 });
+
+const equalButton = document.getElementById("equal");
+
+equalButton.addEventListener("click", () => {
+  let first = document.getElementById("firstOperand").textContent;
+  let op = document.getElementById("operator").textContent;
+  let second = document.getElementById("secondOperand").textContent;
+  console.log(`${first} ${op} ${second}`);
+});
