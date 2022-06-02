@@ -32,13 +32,13 @@ body {
 }
 
 .display {
-  height: 175px;
+  height: 100px;
   width: 350px;
   border: #fff solid 2px;
 }
 
 .buttons {
-  height: 375px;
+  height: 450px;
   width: 350px;
   border: #fff solid 2px;
   display: flex;
@@ -47,7 +47,7 @@ body {
 }
 
 .digits {
-  height: 350px;
+  height: 425px;
   width: 255px;
   display: flex;
   flex-wrap: wrap-reverse;
@@ -57,7 +57,7 @@ body {
 }
 
 .operations {
-  height: 350px;
+  height: 425px;
   width: 85px;
   border: #fff solid 2px;
 }
@@ -66,4 +66,6 @@ button {
   height: 65px;
   width: 65px;
   border: #fff solid 2px;
+  background-color: #000;
+  color: #fff;
 }
