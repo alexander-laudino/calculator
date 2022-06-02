@@ -72,12 +72,18 @@ clearButton.addEventListener("click", () => {
 
 backspaceButton.addEventListener("click", () => {
   if (op === "") {
+    if (first.slice(-1) === ".") {
+      isFirstFloat = false;
+    }
     first = first.slice(0, -1);
     document.getElementById("firstOperand").textContent = first;
   } else if (op.length > 0 && second === "") {
     op = "";
     document.getElementById("operator").textContent = op;
   } else if (op.length > 0 && second.length > 0) {
+    if (second.slice(-1) === ".") {
+      isSecondFloat = false;
+    }
     second = second.slice(0, -1);
     document.getElementById("secondOperand").textContent = second;
   }
