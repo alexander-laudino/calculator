@@ -115,6 +115,18 @@ digitButtons.forEach((button) => {
   });
 });
 
+dotButton.addEventListener("click", (e) => {
+  if (!isFirstFloat && op === "") {
+    first = first + e.target.textContent;
+    document.getElementById("firstOperand").textContent = first;
+    isFirstFloat = true;
+  } else if (!isSecondFloat && op.length > 0) {
+    second = second + e.target.textContent;
+    document.getElementById("secondOperand").textContent = second;
+    isSecondFloat = true;
+  }
+});
+
 operatorButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
     if (second.length > 0) {
@@ -128,18 +140,8 @@ operatorButtons.forEach((button) => {
   });
 });
 
-dotButton.addEventListener("click", (e) => {
-  if (!isFirstFloat && op === "") {
-    first = first + e.target.textContent;
-    document.getElementById("firstOperand").textContent = first;
-    isFirstFloat = true;
-  } else if (!isSecondFloat && op.length > 0) {
-    second = second + e.target.textContent;
-    document.getElementById("secondOperand").textContent = second;
-    isSecondFloat = true;
-  }
-});
-
 equalButton.addEventListener("click", () => {
-  calculateValue();
+  if (first !== "" && op !== "" && second !== "") {
+    calculateValue();
+  }
 });
