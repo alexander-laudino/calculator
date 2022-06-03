@@ -55,6 +55,8 @@ const plusMinusButton = document.getElementById("plusMinus");
 const dotButton = document.getElementById("dot");
 const operatorButtons = document.querySelectorAll(".operations .operators");
 const equalButton = document.getElementById("equal");
+const digits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+const operators = ["+", "-", "*", "/"];
 
 let first = document.getElementById("firstOperand").textContent;
 let op = document.getElementById("operator").textContent;
@@ -177,6 +179,31 @@ operatorButtons.forEach((button) => {
 
 equalButton.addEventListener("click", () => {
   if (first !== "" && op !== "" && second !== "") {
+    calculateValue();
+  }
+});
+
+let x;
+
+window.addEventListener("keydown", (e) => {
+  if (digits.includes(e.key)) {
+    if (first === "" || (first.length > 0 && op === "")) {
+      first = first + e.key;
+      document.getElementById("firstOperand").textContent = first;
+    } else {
+      second = second + e.key;
+      document.getElementById("secondOperand").textContent = second;
+    }
+  } else if (operators.includes(e.key)) {
+    if (second.length > 0) {
+      calculateValue();
+      op = e.key;
+      document.getElementById("operator").textContent = op;
+    } else if (second === "") {
+      op = e.key;
+      document.getElementById("operator").textContent = op;
+    }
+  } else if (e.key === "Enter" && first !== "" && op !== "" && second !== "") {
     calculateValue();
   }
 });
