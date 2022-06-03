@@ -47,6 +47,18 @@ const calculateValue = function () {
   isSecondNeg = false;
 };
 
+const makeFloat = function () {
+  if (!isFirstFloat && op === "") {
+    first = first + ".";
+    document.getElementById("firstOperand").textContent = first;
+    isFirstFloat = true;
+  } else if (!isSecondFloat && op.length > 0) {
+    second = second + ".";
+    document.getElementById("secondOperand").textContent = second;
+    isSecondFloat = true;
+  }
+};
+
 const clearButton = document.getElementById("clear");
 const backspaceButton = document.getElementById("backspace");
 const percentButton = document.getElementById("percent");
@@ -152,16 +164,8 @@ plusMinusButton.addEventListener("click", () => {
   }
 });
 
-dotButton.addEventListener("click", (e) => {
-  if (!isFirstFloat && op === "") {
-    first = first + e.target.textContent;
-    document.getElementById("firstOperand").textContent = first;
-    isFirstFloat = true;
-  } else if (!isSecondFloat && op.length > 0) {
-    second = second + e.target.textContent;
-    document.getElementById("secondOperand").textContent = second;
-    isSecondFloat = true;
-  }
+dotButton.addEventListener("click", () => {
+  makeFloat();
 });
 
 operatorButtons.forEach((button) => {
@@ -182,8 +186,6 @@ equalButton.addEventListener("click", () => {
     calculateValue();
   }
 });
-
-let x;
 
 window.addEventListener("keydown", (e) => {
   if (digits.includes(e.key)) {
