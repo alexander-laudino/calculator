@@ -219,6 +219,8 @@ window.addEventListener("keydown", (e) => {
       op = e.key;
       document.getElementById("operator").textContent = op;
     }
+  } else if (e.key === ".") {
+    makeFloat();
   } else if (e.key === "Enter" && first !== "" && op !== "" && second !== "") {
     calculateValue();
   }
