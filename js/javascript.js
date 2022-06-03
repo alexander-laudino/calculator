@@ -142,6 +142,9 @@ percentButton.addEventListener("click", () => {
 digitButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
     if (first === "" || (first.length > 0 && op === "")) {
+      if (first === "0") {
+        first = "";
+      }
       first = first + e.target.textContent;
       document.getElementById("firstOperand").textContent = first;
     } else {
