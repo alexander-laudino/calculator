@@ -37,6 +37,9 @@ const calculateValue = function () {
   op = "";
   second = "";
   document.getElementById("firstOperand").textContent = `${first}`;
+  if (first[0] === "-") {
+    isFirstNeg = true;
+  }
   document.getElementById("operator").textContent = op;
   document.getElementById("secondOperand").textContent = second;
 };
@@ -45,8 +48,9 @@ const clearButton = document.getElementById("clear");
 const backspaceButton = document.getElementById("backspace");
 const percentButton = document.getElementById("percent");
 const digitButtons = document.querySelectorAll(".digits .digit");
-const operatorButtons = document.querySelectorAll(".operations .operators");
+const plusMinusButton = document.getElementById("plusMinus");
 const dotButton = document.getElementById("dot");
+const operatorButtons = document.querySelectorAll(".operations .operators");
 const equalButton = document.getElementById("equal");
 
 let first = document.getElementById("firstOperand").textContent;
@@ -54,6 +58,7 @@ let op = document.getElementById("operator").textContent;
 let second = document.getElementById("secondOperand").textContent;
 let isFirstFloat = false;
 let isFirstPercent = false;
+let isFirstNeg = false;
 let isSecondFloat = false;
 let isSecondPercent = false;
 
@@ -66,6 +71,7 @@ clearButton.addEventListener("click", () => {
   document.getElementById("secondOperand").textContent = second;
   isFirstFloat = false;
   isFirstPercent = false;
+  isFirstNeg = false;
   isSecondFloat = false;
   isSecondPercent = false;
 });
@@ -113,6 +119,20 @@ digitButtons.forEach((button) => {
       document.getElementById("secondOperand").textContent = second;
     }
   });
+});
+
+plusMinusButton.addEventListener("click", () => {
+  if (op === "") {
+    if (isFirstNeg) {
+      first = first.slice(1);
+      document.getElementById("firstOperand").textContent = first;
+      isFirstNeg = false;
+    } else {
+      first = "-" + first;
+      document.getElementById("firstOperand").textContent = first;
+      isFirstNeg = true;
+    }
+  }
 });
 
 dotButton.addEventListener("click", (e) => {
