@@ -39,9 +39,12 @@ const calculateValue = function () {
   document.getElementById("firstOperand").textContent = `${first}`;
   if (first[0] === "-") {
     isFirstNeg = true;
+  } else {
+    isFirstNeg = false;
   }
   document.getElementById("operator").textContent = op;
   document.getElementById("secondOperand").textContent = second;
+  isSecondNeg = false;
 };
 
 const clearButton = document.getElementById("clear");
@@ -61,6 +64,7 @@ let isFirstPercent = false;
 let isFirstNeg = false;
 let isSecondFloat = false;
 let isSecondPercent = false;
+let isSecondNeg = false;
 
 clearButton.addEventListener("click", () => {
   first = "";
@@ -74,6 +78,7 @@ clearButton.addEventListener("click", () => {
   isFirstNeg = false;
   isSecondFloat = false;
   isSecondPercent = false;
+  isSecondNeg = false;
 });
 
 backspaceButton.addEventListener("click", () => {
@@ -131,6 +136,16 @@ plusMinusButton.addEventListener("click", () => {
       first = "-" + first;
       document.getElementById("firstOperand").textContent = first;
       isFirstNeg = true;
+    }
+  } else if (op.length > 0) {
+    if (isSecondNeg) {
+      second = second.slice(1);
+      document.getElementById("secondOperand").textContent = second;
+      isSecondNeg = false;
+    } else {
+      second = "-" + second;
+      document.getElementById("secondOperand").textContent = second;
+      isSecondNeg = true;
     }
   }
 });
