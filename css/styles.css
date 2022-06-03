@@ -87,3 +87,12 @@ button {
   font-size: 24px;
   font-weight: bold;
 }
+
+#equal {
+  background-color: green;
+  color: #000;
+}
+
+.operators {
+  background-color: gray;
+}
