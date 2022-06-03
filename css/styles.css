@@ -39,13 +39,14 @@ body {
   height: 100px;
   width: 350px;
   border: #fff solid 2px;
-  border-radius: 15px;
+  border-radius: 5px;
   padding-right: 5px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   gap: 5px;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
   font-size: 24px;
 }
 
@@ -95,4 +96,19 @@ button {
 
 .operators {
   background-color: gray;
+}
+
+.digit {
+  background-color: #fff;
+  color: #000;
+}
+
+#clear {
+  background-color: red;
+  color: #000;
+}
+
+#backspace {
+  background-color: yellow;
+  color: #000;
 }
