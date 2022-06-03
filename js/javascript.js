@@ -32,6 +32,14 @@ const operate = function (operator, a, b) {
 };
 
 const calculateValue = function () {
+  if (first === ".") {
+    first = "0";
+    document.getElementById("firstOperand").textContent = first;
+  }
+  if (second === ".") {
+    second = "0";
+    document.getElementById("secondOperand").textContent = second;
+  }
   first = operate(op, parseFloat(first), parseFloat(second));
   first = parseFloat(first.toFixed(8)).toString();
   op = "";
@@ -41,6 +49,9 @@ const calculateValue = function () {
     isFirstNeg = true;
   } else {
     isFirstNeg = false;
+  }
+  if (first.length === 1) {
+    isFirstFloat = false;
   }
   document.getElementById("operator").textContent = op;
   document.getElementById("secondOperand").textContent = second;
